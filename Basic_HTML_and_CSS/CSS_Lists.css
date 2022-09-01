@@ -1,0 +1,20 @@
+ul {
+	list-style-type: square;
+	color: mediumturquoise;
+	font-size: 20px;
+	font-family: "Sofia", sans-serif;
+	list-style-position: inside;
+}
+
+ol {
+	list-style-type: upper-roman;
+	color: mediumpurple;
+	font-size: 20px;
+	font-family: "Sofia", sans-serif;
+	list-style-position: inside;
+}
+
+h1 {
+	color: maroon;
+	font-family: "Sofia", sans-serif;
+}
