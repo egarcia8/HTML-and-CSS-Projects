@@ -1,0 +1,21 @@
+table, th, td {
+	border: 2px solid;
+	text-align: center;
+}
+td:hover {
+	background-color: slategray;
+	color: plum;
+}
+
+tr, th 	{
+	background-color: seashell;
+	color: steelblue;
+}
+tr, td {
+	background-color: papayawhip;
+	color: slateblue;
+}
+h1 {
+	color: steelblue;
+	text-align: center;
+}
