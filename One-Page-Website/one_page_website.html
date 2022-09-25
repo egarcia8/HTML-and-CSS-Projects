@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Island Vacations</title>
 		<link rel="stylesheet" href="./CSS/one_page_website.css">
+		<script src="/JS/one_page_website.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Poppins|Abril+Fatface">
 	</head>
 	
@@ -39,40 +40,76 @@
 				<p>Are you ready for your next vacation? Check out these beautiful locations.</p>
 				<div>
 				
-					<!--PHOTO-CONTAINER 1-->
-					<div>
-						<div>	
-							<img src="./images/thumb/thumbnail_1.jpg" alt="Beach" style="width:50%;">
-						</div>
-					</div>		
-					<!--END PHOTO-CONTAINER-->
+					<!--Lightbox-->
+				<div class="row">
+					<div class="column">
+						<img src="./Images/Thumb/thumbnail_1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+					</div>
+					<div class="column">
+						<img src="./Images/Thumb/thumbnail_2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+					</div>
+					<div class="column">
+						<img src="./Images/Thumb/thumbnail_3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+					</div>
+					<div class="column">
+						<img src="./Images/Thumb/thumbnail_4.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+					</div>
+					</div>
 					
-					<!--PHOTO-CONTAINER 2-->
-					<div>
-						<div class="container">	
-							<img src="./images/thumb/thumbnail_2.jpg" alt="Island" style="width:50%;">
-								<div class="top-left">Beautiful Oceans!
-								</div>
+					<div id="myModal" class="modal">
+					<span class="close cursor" onclick="closeModal()">&times;</span>
+					<div class="modal-content">
+					
+						<div class="mySlides">
+						<div class="numbertext">1 / 4</div>
+						<img src="./Images/image_1.jpg" style="width:100%">
 						</div>
-					</div>		
-					<!--END PHOTO-CONTAINER-->
-
-					<!--PHOTO-CONTAINER 3-->
-					<div>
-						<div class="overlay-container">	
-							<img src="./images/thumb/thumbnail_3.jpg" alt="Sunset" class="image" style="width:50%;">
-							<div class="middle">
-								<div class="text">Breathtaking Sunsets</div>
-							</div>
+					
+						<div class="mySlides">
+						<div class="numbertext">2 / 4</div>
+						<img src="./Images/image_2.jpg" style="width:100%">
 						</div>
-					</div>		
+					
+						<div class="mySlides">
+						<div class="numbertext">3 / 4</div>
+						<img src="./Images/image_3.jpg" style="width:100%">
+						</div>
+						
+						<div class="mySlides">
+						<div class="numbertext">4 / 4</div>
+						<img src="./Images/image_4.jpg" style="width:100%">
+						</div>
+						
+						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+					
+						<div class="caption-container">
+						<p id="caption"></p>
+						</div>
+					
+					
+						<div class="column">
+						<img class="demo cursor" src="./Images/image_1.jpg" style="width:100%" onclick="currentSlide(1)" alt="White sand beaches">
+						</div>
+						<div class="column">
+						<img class="demo cursor" src="./Images/image_2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Beautiful oceans">
+						</div>
+						<div class="column">
+						<img class="demo cursor" src="./Images/image_3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Stunning Sunsets">
+						</div>
+						<div class="column">
+						<img class="demo cursor" src="./Images/image_4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Crystal Clear Waters">
+						</div>
+					</div>
+					</div>
+					  
 					<!--END PHOTO-CONTAINER-->
 					
 					<!--VIDEO-CONTAINER 1-->
 					<div>
 						<div class="container">	
 							<video width="560" height="420" controls muted autoplay loop>
-								<source src="./Images/video.mp4" type="video/mp4">
+								<source src="./Images/Video/video.mp4" type="video/mp4">
 							</video>
 							<div class="video">Video by <a href=" https://www.pexels.com/video/drone-view-of-big-waves-rushing-to-the-shore-3571264">
 								Enrique Hoyos</a>
@@ -120,12 +157,12 @@
 		<section>
 			<h2>Not sure about a passport? No worries!</h2>
 			<div class="row">
-				<div class="column" style="background-color: #bbb;">
+				<div class="table_column" style="background-color: #bbb;">
 					<h3>Requires a passport</h2>
 					<p>Manzanillo, Mexico</p>
 					<p>Ocho Rios, Jamaica</p>
 				</div>
-				<div class="column" style="background-color: #aaa;">
+				<div class="table_column" style="background-color: #aaa;">
 					<h3>Does not require a passport</h2>
 					<p>San Juan, Puerto Rico</p>
 				</div>
