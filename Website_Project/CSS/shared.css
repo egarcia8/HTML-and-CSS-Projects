@@ -224,10 +224,12 @@ section {
     border: none;
     cursor: pointer;
     opacity: 0.8;
-    position: fixed;
     bottom: 75px;
     right: 28px;
     width: 280px;
+    position: -webkit-sticky; /*Safari*/
+    position: sticky;
+    top: 0;
   }
   
   /* The popup form - hidden by default */
