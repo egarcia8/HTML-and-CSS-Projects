@@ -7,6 +7,7 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -16,7 +17,17 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #fbf6fa;
+    opacity: 1;
+    transition: 1s opacity;
 }
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
+ * {
+    box-sizing: border-box;
+ }
 
 footer,
 nav {
@@ -30,14 +41,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     line-height: 50px;
     font-weight: 900;
-    font-size: 30px;
+    font-size: 3vw;
     text-transform: capitalize;
     text-align: center;
     color: #82cece;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
-h1::after { /*This is the underline */
+h1::after, h2::after { /*This is the underline */
     display: block;
     content: " ";
     height: 2px;
@@ -48,8 +59,9 @@ h1::after { /*This is the underline */
 }
 
 h2 {
-    line-height: 50px;
+    font-size: 2vw;
     color: #82cece;
+    text-align: center;
 }
 
 h3  {
@@ -204,132 +216,80 @@ section {
     background-color: rgba(200, 165, 100, .3);
     box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.5);
 }
-
-#contact {
-    background-color: #f5f3f3;
-}
-
-.reservation {
-    width: 60%;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 0px auto;
-    background-color: rgba(200, 165, 100, .3);
-    box-shadow: -1px -1px 1px 0 rgba(0, 0, 0, 1), 1px 2px 10px 0 rgba(0, 0, 0, 0.5); /*this is for two different colors*/
-}
-
-.reservation h2 {
-    width: 70%;
-    text-align: center;
-    margin: 0 auto; /* this aligns vertical and horizontal*/
-    color: #82cece;
-    font-weight: 500;
-    font-size: 1.3em;
-    letter-spacing: 0pt;
-    word-spacing: 0pt;
-}
-
-.reservation h2 span {
-    width: 70%;
-    text-align: center;
-    margin: 0 auto;
-    color: #82cece;
-    font-weight: 900;
-    font-size: 1.5em;
-    font-variant: small-caps;
-    letter-spacing: .4pt;
-    word-spacing: .3pt;
-}
-
-.reservation p {
-    color: #82cece;
-    width: 50%;
-    margin: 0 auto;
-}
-
-.reservation form {
-    font-size: 15px;
-    outline: none;
-    font-weight: 600;
-    color: #fffaf0;
-    padding: 12px 12px;
-    width: 70%;
-    border: 1px solid #808080;
-    margin: 2% auto;
-    border-radius: 7px;
-    background: rgb(227, 222, 222);
-    box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.3);
-    font-family: Poppins, sans-serif;
-}
-
-.reservation input[type="text"] {
-    font-size: 15px;
-    outline: none;
-    font-weight: 600;
-    color: #708090;
-    padding: 2% 1% 2% 7%;
-    width: 80%;
-    border-top: 1px solid #090B0D;
-    border-right: 2px solid #424549;
-    border-bottom: 2px solid #424549;
-    border-left: 1px solid #090B0D;
-    margin: 10px 1em;
-    border-radius: 7px;
-    background: #fdf5e6;
-    box-shadow: inset 0px 3px 0px 0px rgba(5, 5, 5, 0.15);
-    font-family: Poppins, sans-serif;
-}
-
-.reservation input[type="text"]:hover {
-    box-shadow: 0 0 18px rgba(100, 65, 0, .8);
-}
-
-.form-spacer {
-    padding: 30px 39px;
-}
-
-.terms {
-    margin: 30px 1px 0 0;
-    margin-top: 10%;
-    padding-left: 52px;
-    font-size: 14px;
-    line-height: 5px;
-    color: #82cece;
-    cursor: pointer;
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    position: relative;
-    display: inline;
-    float: right;
-}
-
-.terms:hover {
-    color: rgb(42, 92, 107);
-    text-decoration: underline;
-}
-
-.submit input[type="submit"] {
-    color: rgb(255, 255, 252);
-    cursor: pointer;
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    background-color: #82cece;
+    color: white;
+    padding: 16px 20px;
     border: none;
-    font-weight: 900;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 75px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: rgba(200, 165, 100, .3);;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: aliceblue;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
     outline: none;
-    text-align: center;
-    font-family: Poppins, sans-serif;
-    margin: 0px 3%;
-    padding: 7px 0px;
-    width: 25%;
-    font-size: 18px;
-    transition: border-color 0.3s color 0.3s background-color 0.3s;
-    border-radius: 7px;
-    background-color: #797a7b;
-    box-shadow: 1px 1px 4px 0 rgba(100, 65, 0, .3);
-}
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #82cece;
+    color: ghostwhite;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a background color to the cancel button */
+  .form-container .cancel {
+    background-color: mistyrose;
+    color: #8D8E8F;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
 
-.submit input[type="submit"]:hover {
-    color: #000;
-    background-color: #8D8E8F;
-    box-shadow: inset 1px 2px 15px 0 rgba(0, 0, 0, 0.5);
+  #reservation {
+    font-size: 1.5vw;
+    text-align: center;
+    line-height: 30px;
+    padding-bottom: 15px;
 }
 /*--------------------------------------------------------------------
     FOOTER STYLES
@@ -339,7 +299,7 @@ section {
     color: #000;
     text-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 1);
     padding: 20px 50px 20px 50px;
-    text-align: right;
+    text-align: left;
 }
 /*--------------------------------------------------------------------
     @MEDIA QUERIES
@@ -370,6 +330,11 @@ section {
 @media (min-width: 1200px) {
     .container {
         width: 1170px;
+    }
+}
+@media (max-width: 768px) {
+    .open-button {
+        width: 140px;
     }
 }
 

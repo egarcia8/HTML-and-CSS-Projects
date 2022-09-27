@@ -158,35 +158,42 @@
 		<!--END GALLERY-->
 
 		<!--RSVP-->
-		<section id="contact">
-			<div class="container">
-				<div class="heading-padding">
-					<h1 class="heading-padding">Reservations</h1>
-					<div class="reservation">
-						<h2><span>Join our next project tutorial!</span>
-							<br/>Reserve your spot today!
-						</h2>
-						<p class="rsvp-text">
-							Please provide us with your basic contact information.
-						</p>
-						<div class="form-rsvp">
-						<form action="" method="post">
-							<input class="rsvp" type="text" value="" placeholder="First Name">
-							<input class="rsvp" type="text" value="" placeholder="Last Name">
-							<input class="rsvp" type="text" value="" placeholder="Email Address">
-							<input class="rsvp" type="text" value="" placeholder="Phone Number">
-						</form>
-						<div class="form-spacer">
-							<label class="terms">Terms and Conditions</label>	
-						</div>
-						<div class="submit">
-							<input type="submit" value="Submit">
-						</div>
-						</div>
-					</div>	
-				</div>
+		<div id="contact">
+			<h2>Join us!</h2>
+			<p id="reservation">Sign up for our next class! You too can make some of these wonderful crafts!</p>
+			
 			</div>
-		</section>
+			<button class="open-button" onclick="openForm()">Sign Me Up!</button>
+
+			<div class="form-popup" id="myForm">
+			<form action="/action_page.php" class="form-container">
+				<h1>Login</h1>
+
+				<label for="firstname"><b>First Name</b></label>
+				<input type="text" placeholder="Enter First Name" name="firstname" required>
+
+				<label for="lastname"><b>Last Name</b></label>
+				<input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Eamil" name="email" required>
+
+				<button type="submit" class="btn">Sign Up!</button>
+				<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+			</form>
+			</div>
+		</div>
+
+		<script>
+		function openForm() {
+		document.getElementById("myForm").style.display = "block";
+		}
+
+		function closeForm() {
+		document.getElementById("myForm").style.display = "none";
+		}
+		</script>
+
 		<!--END RSVP-->
 
 		<!--FOOTER-->
