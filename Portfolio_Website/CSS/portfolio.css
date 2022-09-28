@@ -322,7 +322,7 @@ footer {
 .Column_2 {
     float: left;
     width: 50%;
-    adding: 1.6%;
+    padding: 1.6%;
     height: 450px;
     background-color: #9099a2;
 }
