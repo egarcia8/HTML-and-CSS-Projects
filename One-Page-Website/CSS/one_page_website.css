@@ -249,10 +249,5 @@ footer {
     position: relative;
     text-align: center;
     color: #dfdce3;
-}
-
-.video {
-    position: absolute;
-    top: 60px;
-    left: 300px;
+    font-size: 9px;
 }
